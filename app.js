@@ -122,3 +122,114 @@ while (stack.length > 0) {
   
 
 
+
+console.log("----------------linkedlistTask q1---------------")
+
+
+
+  class ListNode {
+    constructor(data) {
+        this.data = data
+        this.next = null                
+    }
+}
+
+class LinkedList {
+    constructor(head = null) {
+        this.head = head
+    }
+
+     AddItem(item){
+         let nodenew = new ListNode(item)
+         let last = list.getLast()
+         last.next = nodenew
+
+     }
+     delete(){
+        let previous;
+        let index = this.ListSize()
+        let index2 = this.getFirst()
+        index = Math.ceil(index/2)
+
+        for(let x = 1;x<index;x++){
+            previous = index2
+            index2=index2.next
+        }
+        index = index2.next
+        previous.next =index
+     }
+
+     reverse(){
+        let stack=[]
+        let p =list.head
+        while(p){
+             stack.push(p.data)
+                 p=p.next
+        }
+        p =list.head
+        while(p){
+            p.data=stack.pop()
+                p=p.next
+       }
+
+     }
+     print(){
+        let p =this.head
+        while(p){
+            console.log(p.data)
+            p=p.next
+        }
+     }
+
+    ListSize() {
+        let count = 0; 
+        let node = this.head;
+        while (node) {
+            count++;
+            node = node.next
+        }
+        return count;
+    }
+    getFirst() {
+        return this.head;
+    }
+}
+
+let node1 = new ListNode(1)
+let node2 = new ListNode(2)
+let node3 = new ListNode(3)
+let node4 = new ListNode(4)
+let node5 = new ListNode(5)
+let node6 = new ListNode(6)
+let node7 = new ListNode(7)
+let node8 = new ListNode(8)
+let node9 = new ListNode(9)
+node1.next = node2;
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = node6
+node6.next = node7
+node7.next = node8
+node8.next = node9
+
+
+
+let list = new LinkedList(node1)
+
+
+console.log("before modify")
+list.print()
+
+console.log("after modify")
+list.delete()
+list.print()
+
+console.log("----------------linkedlistTask q2---------------")
+
+list.reverse()
+list.print()
+
+
+
+
