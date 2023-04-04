@@ -104,17 +104,23 @@ while (stack.length > 0) {
               let x = stack1.pop();
               stack2.push(x);
           }
-      }
-      stack1=stack2
-      return stack2.pop()
+          let result = stack2.pop()
+
+          while (stack2.length > 0) {
+            stack1.push(stack2.pop());
+        }
+      
+      return result}
   }
 
-  
-  console.log(enqueue(1));
-  console.log( enqueue(2));
-  console.log(enqueue(3));
+  console.log("stack")
+ enqueue(1);
+ enqueue(2);
+enqueue(3);
 
   console.log(dequeue());
+
+  console.log(stack1)
   console.log(dequeue());
 
   console.log(stack1)
